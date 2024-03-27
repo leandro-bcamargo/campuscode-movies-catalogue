@@ -1,0 +1,18 @@
+<h1>Register Genre</h1>
+
+<% if flash[:notice] %>
+  <div style="margin: 10px 0">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<%= form_with model: @genre do |f| %>
+  <div>
+    <%= f.label :name, 'Name' %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.submit 'Save' %>
+  </div>
+<% end %>
