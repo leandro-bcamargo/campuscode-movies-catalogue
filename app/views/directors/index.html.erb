@@ -1,0 +1,9 @@
+<h1>Directors</h1>
+
+<dl>
+  <% @directors.each do |director| %>
+    <dt>
+      <%= link_to(director.name, director_path(director)) %>
+    </dt>
+  <% end %>
+</dl>

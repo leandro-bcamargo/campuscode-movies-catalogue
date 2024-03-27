@@ -1,8 +1,9 @@
 <h1>Film Genres</h1>
+
 <dl>
   <% @genres.each do |genre| %>
     <dt>
-      <%= link_to genre.name, genre_path(genre) %>
+      <%= link_to(genre.name, genre_path(genre)) %>
     </dt>
   <% end %>
 </dl>

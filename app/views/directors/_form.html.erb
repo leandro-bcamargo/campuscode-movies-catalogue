@@ -1,0 +1,31 @@
+<% if flash[:notice] %>
+  <div style="margin: 10px 0">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<%= form_with model: @director do |f| %>
+  <div>
+    <%= f.label :name, 'Name' %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :nationality, 'Nationality' %>
+    <%= f.text_field :nationality %>
+  </div>
+
+  <div>
+    <%= f.label :birth_date, 'Birth Date' %>
+    <%= f.date_select :birth_date, start_year: 1900 %>
+  </div>
+
+  <div>
+    <%= f.label :favorite_genre_id, 'Favorite Genre' %>
+    <%= f.collection_select :favorite_genre_id, Genre.all, :id, :name %>
+  </div>
+
+  <div>
+    <%= f.submit 'Save' %>
+  </div>
+<% end %>

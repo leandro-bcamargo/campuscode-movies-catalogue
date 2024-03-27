@@ -17,7 +17,7 @@ class GenresController < ApplicationController
       return redirect_to new_genre_path
     end
 
-    flash[:alert] = 'There was an error when trying to create the genre'
+    flash[:alert] = 'There was an error when trying to create the genre.'
     render :new
   end
 
@@ -28,14 +28,14 @@ class GenresController < ApplicationController
   def update
     @genre = Genre.find(params[:id])
 
-    if Genre.update(
+    if @genre.update(
       name: params[:genre][:name]
     )
-      flash[:notice] = 'Genre successfully updated'
+      flash[:notice] = 'Genre successfully updated!'
       return redirect_to(genre_path)
     end
 
-    flash[:alert] = 'There was an error when trying to update the genre'
+    flash[:alert] = 'There was an error when trying to update the genre.'
     render :edit
   end
 end

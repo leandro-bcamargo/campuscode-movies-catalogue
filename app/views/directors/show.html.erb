@@ -1,0 +1,25 @@
+<h1>Director: <%= @director.name %></h1>
+
+<%= link_to 'Edit', edit_director_path %>
+
+<dl>
+  <dt>
+    <strong>Name: </strong>
+    <%= @director.name %>
+  </dt>
+
+  <dt>
+    <strong>Nationality: </strong>
+    <%= @director.nationality %>
+  </dt>
+
+  <dt>
+    <strong>Birth Date: </strong>
+    <%= @director.birth_date %>
+  </dt>
+
+  <dt>
+    <strong>Favorite Genre: </strong>
+    <%= @director.favorite_genre.name %>
+  </dt>
+</dl>
