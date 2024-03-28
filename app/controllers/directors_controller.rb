@@ -5,6 +5,7 @@ class DirectorsController < ApplicationController
 
   def show
     @director = Director.find(params[:id])
+    @movies = Movie.where(director_id: params[:id])
   end
 
   def new
@@ -40,7 +41,7 @@ class DirectorsController < ApplicationController
     day = params[:director]["birth_date(3i)"].to_i
 
     birth_date = Date.new(year, month, day)
-    
+
     if @director.update(
       name: params[:director][:name],
       nationality: params[:director][:nationality],

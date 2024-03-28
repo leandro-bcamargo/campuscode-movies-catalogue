@@ -8,3 +8,13 @@
     <%= @genre.name %>
   </dt>
 </dl>
+<dl>
+  <dt>
+    <strong>Movies in the Genre:</strong>
+  </dt>
+  <% @movies.each do |movie| %>
+    <dt>
+      <%= link_to movie.title, movie_path %>
+    </dt>
+  <% end %>
+</dl>
