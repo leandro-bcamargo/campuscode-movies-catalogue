@@ -1,0 +1,40 @@
+<h1>Movie: <%= @movie.title %></h1>
+
+<%= link_to 'Edit', edit_movie_path %>
+
+<dl>
+  <dt>
+    <strong>Title: </strong>
+    <%= @movie.title %>
+  </dt>
+
+  <dt>
+    <strong>Release Year: </strong>
+    <%= @movie.release_year %>
+  </dt>
+  
+  <dt>
+    <strong>Synopsis: </strong>
+    <%= @movie.synopsis %>
+  </dt>
+
+  <dt>
+    <strong>Country of Origin: </strong>
+    <%= @movie.country_of_origin %>
+  </dt>
+
+  <dt>
+    <strong>Duration in Minutes: </strong>
+    <%= @movie.duration_in_minutes %>
+  </dt>
+
+  <dt>
+    <strong>Director: </strong>
+    <%= @movie.director.name %>
+  </dt>
+
+  <dt>
+    <strong>Genre: </strong>
+    <%= @movie.genre.name %>
+  </dt>
+</dl>

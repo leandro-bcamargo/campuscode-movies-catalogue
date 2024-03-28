@@ -40,9 +40,7 @@ class DirectorsController < ApplicationController
     day = params[:director]["birth_date(3i)"].to_i
 
     birth_date = Date.new(year, month, day)
-
-    puts "birth_date"
-
+    
     if @director.update(
       name: params[:director][:name],
       nationality: params[:director][:nationality],
