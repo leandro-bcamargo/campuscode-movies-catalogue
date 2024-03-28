@@ -42,11 +42,20 @@
   </dt>
 
   <dt>
-    <strong>Status: </strong>
+    <strong>Release Status: </strong>
     <%= @movie.release_status.capitalize %>
   </dt>
 
   <dt>
     <%= button_to @movie.released? ? 'Set as Unreleased' : 'Set as Released', release_movie_path, {method: 'patch'} %>
+  </dt>
+
+  <dt>
+    <strong>Publish Status: </strong>
+    <%= @movie.publish_status.capitalize %>
+  </dt>
+
+  <dt>
+    <%= button_to @movie.published? ? 'Set as Draft' : 'Set as Published', publish_movie_path, {method: 'patch'} %>
   </dt>
 </dl>

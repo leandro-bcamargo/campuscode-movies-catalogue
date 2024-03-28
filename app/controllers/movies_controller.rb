@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
   def index
-    @movies = Movie.all
+    @movies = Movie.published
   end
 
   def show
@@ -67,11 +67,28 @@ class MoviesController < ApplicationController
     end
 
     if @movie.save
-      flash[:notice] = 'Status successfully set!'
+      flash[:notice] = 'Release status successfully set!'
       return redirect_to movie_path(@movie.id)
     end
 
-    flash[:alert] = 'There was a problem when trying to set the status.'
+    flash[:alert] = 'There was a problem when trying to set the release status.'
+    redirect_to movie_path(@movie.id)
+  end
+
+  def publish
+    @movie = Movie.find(params[:id])
+    if @movie.published?
+      @movie.draft!
+    else
+      @movie.published!
+    end
+
+    if @movie.save
+      flash[:notice] = "Publish status successfully set!"
+      return redirect_to movie_path(@movie.id)
+    end
+
+    flash[:alert] = "There was a problem when trying to set the publish status."
     redirect_to movie_path(@movie.id)
   end
 end

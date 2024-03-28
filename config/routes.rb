@@ -7,5 +7,6 @@ Rails.application.routes.draw do
 
   resources :movies, only: [:index, :show, :new, :create, :edit, :update] do
     patch(:release, on: :member)
+    patch(:publish, on: :member)
   end
 end
