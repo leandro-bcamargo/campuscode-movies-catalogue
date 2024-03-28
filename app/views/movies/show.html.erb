@@ -37,4 +37,13 @@
     <strong>Genre: </strong>
     <%= @movie.genre.name %>
   </dt>
+
+  <dt>
+    <strong>Status: </strong>
+    <%= @movie.release_status.capitalize %>
+  </dt>
+
+  <dt>
+    <%= button_to @movie.released? ? 'Set as Unreleased' : 'Set as Released', release_movie_path, {method: 'patch'} %>
+  </dt>
 </dl>

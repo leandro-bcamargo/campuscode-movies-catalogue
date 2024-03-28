@@ -54,4 +54,21 @@ class MoviesController < ApplicationController
     flash[:alert] = 'There was an error when trying to update the movie.'
     render :edit
   end
+
+  def release
+    @movie = Movie.find(params[:id])
+    if @movie.released?
+      @movie.unreleased!
+    else
+      @movie.released!
+    end
+
+    if @movie.save
+      flash[:notice] = 'Status successfully set!'
+      return redirect_to movie_path(@movie.id)
+    end
+
+    flash[:alert] = 'There was a problem when trying to set the status.'
+    redirect_to movie_path(@movie.id)
+  end
 end
