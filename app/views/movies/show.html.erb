@@ -4,6 +4,9 @@
 
 <dl>
   <dt>
+    <%= image_tag(@movie.image) if @movie.image.attached? %>
+  </dt>
+  <dt>
     <strong>Title: </strong>
     <%= @movie.title %>
   </dt>

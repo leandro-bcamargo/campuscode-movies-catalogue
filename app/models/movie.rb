@@ -4,4 +4,5 @@ class Movie < ApplicationRecord
   enum(release_status: {
     unreleased: 0,
     released: 1})
+  has_one_attached :image
 end

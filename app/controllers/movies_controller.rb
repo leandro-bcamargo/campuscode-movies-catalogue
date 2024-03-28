@@ -47,6 +47,9 @@ class MoviesController < ApplicationController
       director_id: params[:movie][:director_id],
       genre_id: params[:movie][:genre_id]
     )
+      if params[:movie][:image].present?
+        @movie.image.attach(params[:movie][:image])
+      end
       flash[:notice] = 'Movie successfully updated!'
       return redirect_to(movie_path)
     end
