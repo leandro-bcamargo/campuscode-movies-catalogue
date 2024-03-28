@@ -3,7 +3,7 @@
 <dl>
   <% @movies.each do |movie| %>
   <dt>
-    <%= link_to movie.title, movie_path(movie) %>
+    <%= link_to "#{movie.title} (#{movie.release_year})", movie_path(movie) %>
   </dt>
   <% end %>
 </dl>
