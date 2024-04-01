@@ -7,6 +7,12 @@
   </div>
 <% end %>
 
+<% if flash[:alert] %>
+  <div style="margin: 10px 0">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
 <%= form_with model: @movie do |f| %>
   <div>
     <%= f.label :title, 'Title' %>
