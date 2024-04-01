@@ -14,10 +14,7 @@ class DirectorsController < ApplicationController
 
   def create
     @director = Director.new(
-      name: params[:director][:name],
-      nationality: params[:director][:nationality],
-      birth_date: params[:director][:birth_date],
-      favorite_genre_id: params[:director][:favorite_genre_id],
+      params.require(:director).permit(:name, :nationality, :birth_date, :favorite_genre_id)
     )
 
     if @director.save
