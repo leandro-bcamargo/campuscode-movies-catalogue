@@ -13,13 +13,7 @@ class MoviesController < ApplicationController
 
   def create
     @movie = Movie.new(
-      title: params[:movie][:title],
-      release_year: params[:movie][:release_year],
-      synopsis: params[:movie][:synopsis],
-      country_of_origin: params[:movie][:country_of_origin],
-      duration_in_minutes: params[:movie][:duration_in_minutes],
-      director_id: params[:movie][:director_id],
-      genre_id: params[:movie][:genre_id]
+      params.require(:movie).permit(:title, :release_year, :synopsis, :country_of_origin, :duration_in_minutes, :director_id, :genre_id)
     )
 
     if @movie.save
@@ -39,13 +33,7 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
 
     if @movie.update(
-      title: params[:movie][:title],
-      release_year: params[:movie][:release_year],
-      synopsis: params[:movie][:synopsis],
-      country_of_origin: params[:movie][:country_of_origin],
-      duration_in_minutes: params[:movie][:duration_in_minutes],
-      director_id: params[:movie][:director_id],
-      genre_id: params[:movie][:genre_id]
+      params.require(:movie).permit(:title, :release_year, :synopsis, :country_of_origin, :duration_in_minutes, :director_id, :genre_id)
     )
       if params[:movie][:image].present?
         @movie.image.attach(params[:movie][:image])

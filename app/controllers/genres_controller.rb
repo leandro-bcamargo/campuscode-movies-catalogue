@@ -12,7 +12,9 @@ class GenresController < ApplicationController
   end
 
   def create
-    @genre = Genre.new(name: params[:genre][:name])
+    @genre = Genre.new(
+      params.require(:genre).permit(:name)
+    )
     if @genre.save
       flash[:notice] = 'Genre successfully created!'
       return redirect_to new_genre_path
@@ -30,7 +32,7 @@ class GenresController < ApplicationController
     @genre = Genre.find(params[:id])
 
     if @genre.update(
-      name: params[:genre][:name]
+      params.require(:genre).permit(:name)
     )
       flash[:notice] = 'Genre successfully updated!'
       return redirect_to(genre_path)

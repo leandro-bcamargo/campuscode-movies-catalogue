@@ -40,10 +40,7 @@ class DirectorsController < ApplicationController
     birth_date = Date.new(year, month, day)
 
     if @director.update(
-      name: params[:director][:name],
-      nationality: params[:director][:nationality],
-      birth_date: birth_date,
-      favorite_genre_id: params[:director][:favorite_genre_id]
+      params.require(:director).permit(:name, :nationality, :birth_date, :favorite_genre_id)
     )
       flash[:notice] = 'Director successfully updated!'
       return redirect_to director_path
